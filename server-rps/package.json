@@ -1,0 +1,17 @@
+{
+  "name": "rps-game-server",
+  "version": "1.0.0",
+  "description": "Rock-Paper-Scissors game server using Colyseus",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@colyseus/monitor": "^0.16.7",
+    "colyseus": "^0.16.4"
+  },
+  "author": "",
+  "license": "MIT"
+}

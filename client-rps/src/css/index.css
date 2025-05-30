@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 min-h-screen;
+  }
+
+  h1, h2 {
+    @apply font-extrabold tracking-tight text-white;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-10 py-4 rounded-2xl font-semibold text-lg shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-gray-900 backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 focus:ring-blue-400 text-white;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 focus:ring-gray-500 text-white bg-opacity-70 backdrop-blur-md;
+  }
+
+  .btn-success {
+    @apply bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 focus:ring-green-400 text-white;
+  }
+
+  .btn-danger {
+    @apply bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 focus:ring-red-400 text-white;
+  }
+
+  .btn-info {
+    @apply bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 focus:ring-cyan-300 text-white;
+  }
+
+  .input-field {
+    @apply bg-gray-800 bg-opacity-50 backdrop-blur-md text-white p-4 rounded-xl border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300 w-full;
+  }
+
+  .toggle {
+    @apply h-8 w-16 rounded-full bg-gray-700 bg-opacity-50 backdrop-blur-md appearance-none relative cursor-pointer transition-all duration-300;
+  }
+
+  .toggle:checked {
+    @apply bg-cyan-500;
+  }
+
+  .toggle::before {
+    @apply content-[''] absolute top-0.5 left-0.5 h-7 w-7 bg-white rounded-full shadow-lg transition-all duration-300;
+  }
+
+  .toggle:checked::before {
+    @apply transform translate-x-8;
+  }
+
+  .option-card {
+    @apply relative bg-gradient-to-br from-gray-800 to-indigo-900 bg-opacity-90 backdrop-blur-lg rounded-2xl shadow-xl p-4 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)];
+  }
+
+  .option-card.selected {
+    @apply scale-110 shadow-[0_0_25px_rgba(59,130,246,0.9)] border-2 border-cyan-400 bg-gradient-to-br from-blue-600 to-indigo-600;
+  }
+
+  .option-btn {
+    @apply flex flex-col items-center justify-center bg-transparent p-4 rounded-xl w-24 h-32 sm:w-32 sm:h-40 focus:outline-none transition-all duration-300;
+  }
+
+  .option-btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .option-btn i {
+    @apply transition-transform duration-300;
+  }
+
+  .option-card:hover .option-btn i {
+    @apply scale-115 rotate-6;
+  }
+
+  .option-card.selected .option-btn i {
+    @apply scale-120;
+  }
+
+  .option-btn:active {
+    @apply scale-95;
+  }
+
+  .option-label {
+    @apply mt-2 text-sm sm:text-base font-semibold text-white uppercase tracking-wide;
+  }
+
+  .option-card.selected .option-label {
+    @apply text-cyan-300;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 6s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.input-field:placeholder-shown + label {
+  top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.input-field:focus + label,
+.input-field:not(:placeholder-shown) + label {
+  top: -1.5rem;
+  font-size: 0.75rem;
+  color: #22d3ee;
+}
+@media (min-width: 640px) {
+  .input-field:placeholder-shown + label {
+    top: 0.75rem;
+    font-size: 1rem;
+  }
+  .input-field:focus + label,
+  .input-field:not(:placeholder-shown) + label {
+    top: -1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    @apply text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  .btn {
+    @apply px-8 py-3 text-base;
+  }
+
+  .option-card {
+    @apply p-4;
+  }
+
+  .option-btn {
+    @apply w-20 h-28;
+  }
+
+  .option-btn i {
+    @apply text-3xl;
+  }
+
+  .option-label {
+    @apply text-xs;
+  }
+
+  .input-field {
+    @apply p-3;
+  }
+
+  .toggle {
+    @apply h-7 w-14;
+  }
+
+  .toggle::before {
+    @apply h-6 w-6;
+  }
+
+  .toggle:checked::before {
+    @apply translate-x-7;
+  }
+}
